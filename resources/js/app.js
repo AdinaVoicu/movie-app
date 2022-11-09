@@ -7,7 +7,7 @@ import { faUser, faBars, faStar, faArrowLeft } from '@fortawesome/free-solid-svg
 
 library.add(faUser, faArrowLeft, faBars, faStar)
 
-import MoviesIndex from './components/App.vue'
+import MoviesIndex from '@/components/Main.vue'
 
 const app = createApp({})
 app.component('moviesindex', MoviesIndex)
