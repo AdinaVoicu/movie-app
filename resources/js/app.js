@@ -3,9 +3,9 @@ import { createApp } from 'vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faBars, faStar, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faUser)
+library.add(faUser, faArrowLeft, faBars, faStar)
 
 import MoviesIndex from './components/App.vue'
 
