@@ -6,7 +6,7 @@ use App\Models\Movie;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class MovieArtistSeeder extends Seeder
+class ArtistMovieSeeder extends Seeder
 {
     /**
      * Run the database seeds.
