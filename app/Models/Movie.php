@@ -18,7 +18,6 @@ class Movie extends Model
         'rating',
         'created_at',
     ];
-
     public $filterable = [
         'id',
         'name',
@@ -44,8 +43,19 @@ class Movie extends Model
         'updated_at',
         'deleted_at',
     ];
+
+
     public function artists()
     {
-        return $this->belongsToMany(Artist::class, 'movie_artist', 'movie_id', 'artist_id');
+        return $this->belongsToMany(Artist::class); //->withPivot('id');
+    }
+
+    public function scopeVisible($query)
+    {
+        $query->where('status', 1)->get();
+    }
+    public function scopeStatus($query)
+    {
+        $query->where('rating', '>', 5)->get();
     }
 }
