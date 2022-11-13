@@ -25,7 +25,7 @@ class Artist extends Model
         'title',
     ];
 
-    protected $hidden = [];
+    protected $hidden = ['pivot'];
 
     protected $fillable = [
         'name',
@@ -40,8 +40,9 @@ class Artist extends Model
         'updated_at',
         'deleted_at',
     ];
+
     public function movies()
     {
-        return $this->belongsToMany(Movie::class, 'movie_artist', 'artist_id', 'movie_id');
+        return $this->belongsToMany(Movie::class);
     }
 }
