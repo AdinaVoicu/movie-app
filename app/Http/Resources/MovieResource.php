@@ -14,6 +14,7 @@ class MovieResource extends JsonResource
 			'name' => $this->name,
 			'rating' => $this->rating,
 			'image' => $this->image,
+			'description' => $this->description,
 			'directors' => $this->artists->where('title', 'Director')->pluck('name')->implode(', '),
 			'writers' => $this->artists->where('title', 'Writer')->pluck('name')->implode(', '),
 			'stars' => $this->artists->where('title', 'Star')->pluck('name')->implode(', '),
