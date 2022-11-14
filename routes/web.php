@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('movies.index');
-});
+Route::view('/{any?}', 'movies.index')
+    ->name('dashboard')
+    ->where('any', '.*');
