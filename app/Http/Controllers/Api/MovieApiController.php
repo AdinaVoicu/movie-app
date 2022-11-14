@@ -16,7 +16,7 @@ class MovieApiController extends Controller
 	public function index()
 	{
 
-		$movies = Movie::with('artists')->visible()->status()->get();
+		$movies = Movie::with('artists')->visible()->status()->paginate(15);
 
 		return MovieResource::collection($movies);
 	}

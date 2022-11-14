@@ -2,13 +2,14 @@
 	<TheNav />
 	<div class="card-group">
 
-		<div v-for="movie in movies" class="container-fluid">
+		<div v-for="movie in movies.data" class="container-fluid">
 			<div class="row">
 				<div class="col-12 mt-3">
 					<div class="card shadow shadow-inner rounded-2">
 						<div class="card-horizontal">
 							<div class="p-2">
-								<img class="" v-bind:src="movie.image" v-bind:alt="pic">
+								<img class=""
+									v-lazy="{ src: movie.image, loading: 'empty.png', error: 'empty.png', delay: 200 }">
 							</div>
 							<div class="card-body d-flex flex-column">
 								<span class="card-title fw-bold title">{{ movie.name }}</span>
@@ -34,10 +35,12 @@
 			</div>
 		</div>
 	</div>
+	<p>
+		<Pagination class="pagination justify-content-center" :data="movies" @pagination-change-page="getMovies" />
+	</p>
 </template>
 <script>
 import TheNav from '@/components/TheNav.vue'
-import axios from 'axios';
 import { onMounted } from 'vue';
 import useMovies from '@/composables/movies.js'
 export default {
@@ -45,7 +48,7 @@ export default {
 		const { movies, getMovies } = useMovies()
 		onMounted(getMovies)
 
-		return { movies }
+		return { movies, getMovies }
 	},
 	components: { TheNav }
 

@@ -7,7 +7,6 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-$mainColor: #f5c518;
 
 .card-horizontal {
     display: flex;
@@ -17,9 +16,7 @@ $mainColor: #f5c518;
 	border:none;
 	box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-body {
-	font-family: 'Open Sans';
-}
+
 .main-color{
 	color: $mainColor;
 }
