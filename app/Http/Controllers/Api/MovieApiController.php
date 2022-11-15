@@ -6,16 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Resources\MovieResource;
 use App\Models\Movie;
-use Illuminate\Auth\Access\Gate;
-
-// use MovieResource;
 
 class MovieApiController extends Controller
 {
 	public function index()
 	{
 
-		$movies = Movie::with('artists')->visible()->status()->paginate();
+		$movies = Movie::visible()->status()->with('artists')->paginate();
 
 		return MovieResource::collection($movies);
 	}
